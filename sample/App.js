@@ -2,18 +2,19 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import reducers from './reducers';
+import Header from './components/Header';
 
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={ createStore }>
-      <View style={styles.container}>
-        <Text> HELLO  </Text>
-      </View>
+      <Provider store={ createStore(reducers)}>
+      <Header headerText="Tech Stack" />
+
       </Provider>
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
   container: {

@@ -1,35 +1,57 @@
-// Import libraries for making a component
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
 
-// Make a component
-const Header = (props) => {
-  const { textStyle, viewStyle } = styles;
+const dimensions = Dimensions.get('window');
+const imageWidth = dimensions.width;
 
-  return (
-    <View style={viewStyle}>
-      <Text style={textStyle}>{props.headerText}</Text>
-    </View>
-  );
+class Header extends React.Component {
+    render () {
+        const headerText = this.props.headerText;
+        const leftButton = this.props.leftButton;
+        const rightButton = this.props.rightButton;
+        const secondRightButton = this.props.secondRightButton;
+        const transparentHeader = this.props.transparentHeader ? 'transparent' : '#FFFFFF';
+        const headerSize = this.props.secondRightButton ? 182.5 : 132.5;
+        const headerPadding = this.props.secondRightButton ? this.props.noCenterTitle ? 0 : 50 : 0;
+        return (
+            <View style={[styles.header, {width: imageWidth, backgroundColor: transparentHeader}]}>
+                {leftButton}
+                <View style={{height: 50, alignItems: 'center', paddingLeft: headerPadding, width: (imageWidth-headerSize), justifyContent: 'center'}}>
+                    <Text style={styles.headerText} ellipsizeMode={'tail'} numberOfLines={1}>{headerText}</Text>
+                </View>
+                <View style={{flexDirection: 'row', justifyContent: 'flex-end', paddingRight: 8.75}}>
+                    {secondRightButton}
+                    {rightButton}
+                </View>
+            </View>
+        );
+    }
 };
 
-const styles = {
-  viewStyle: {
-    backgroundColor: '#F8F8F8',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 60,
-    paddingTop: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 2,
-    position: 'relative'
-  },
-  textStyle: {
-    fontSize: 20
-  }
-};
+const styles = StyleSheet.create({
+    headerText: {
+        color: 'rgb(19,19,21)',
+        textAlign: 'right',
+        fontSize: 13,
+        lineHeight: 13,
+        height: 13,
+        letterSpacing: 1.4,
+    },
+    headerIcon: {
+      width: 17.5,
+      height: 17.5,
+        resizeMode: 'contain'
+    },
+    header: {
+        top: 0,
+        alignSelf: 'stretch',
+        height:50,
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingLeft: 8.75,
+        justifyContent: 'space-between',
+        zIndex: 1
+    }
+});
 
-// Make the component available to other parts of the app
-export { Header };
+export default Header;
