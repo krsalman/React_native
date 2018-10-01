@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text} from 'react-native';
-import CardSection from './Cardsection';
+import CardSection from './CardSection';
 
 class ListItem extends React.Component {
   render()  {
