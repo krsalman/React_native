@@ -15,7 +15,6 @@ class LibraryList extends React.Component {
         renderItem = {this.renderItem}
         keyExtractor={library => library.id}
       />
-
     );
   }
 }

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     headerText: {
         color: 'rgb(19,19,21)',
         textAlign: 'right',
-        fontSize: 13,
+        fontSize: 14,
         lineHeight: 13,
         height: 13,
         letterSpacing: 1.4,
@@ -48,9 +48,10 @@ const styles = StyleSheet.create({
         height:50,
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 8.75,
-        justifyContent: 'space-between',
-        zIndex: 1
+        justifyContent: 'center',
+        zIndex: 1,
+        borderBottomWidth: 1
+
     }
 });
 

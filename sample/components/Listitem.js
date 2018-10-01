@@ -1,14 +1,25 @@
 import React from 'react';
-import { Text } from 'react-native';
-
+import { Text} from 'react-native';
+import CardSection from './Cardsection';
 
 class ListItem extends React.Component {
-  render() {
-    return(
-      <Text>{this.props.library.title}</Text>
+  render()  {
+    const { titleStyle } = styles;
+
+    return (
+      <CardSection>
+        <Text style={titleStyle}>{this.props.library.item.title}</Text>
+      </CardSection>
     );
   }
-
 }
+
+const styles = {
+  titleStyle:{
+    fontSize: 18,
+    paddingLeft: 15
+  }
+
+};
 
 export default ListItem;

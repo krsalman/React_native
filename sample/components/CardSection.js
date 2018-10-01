@@ -1,12 +1,14 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const CardSection = (props) => {
-  return (
-    <View style={styles.containerStyle}>
-      {props.children}
-    </View>
-  );
+class CardSection extends React.Component{
+  render() {
+      return(
+        <View style={styles.containerStyle}>
+          {this.props.children}
+        </View>
+      );
+    }
 };
 
 const styles = {
@@ -21,4 +23,4 @@ const styles = {
   }
 };
 
-export { CardSection };
+export default CardSection;
