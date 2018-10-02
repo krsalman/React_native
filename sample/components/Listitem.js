@@ -25,10 +25,12 @@ class ListItem extends React.Component {
         <View>
           <CardSection>
             <Text style={titleStyle}>{this.props.library.item.title}</Text>
+                      {this.renderDescription()}
           </CardSection>
-          <Text>
+
+
           {this.renderDescription()}
-          </Text>
+
         </View>
       </TouchableOpacity>
     );
